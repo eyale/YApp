@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="YAppApp">
+
+<head>
+	<meta charset="UTF-8">
+	<title>YApp</title>
+	<!-- STYLES & FONTS -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+	<!-- SCRIPTS & LIBRARIES -->
+	<script src="jquery/dist/jquery.js"></script>
+	<script src="angular/angular.min.js"></script>
+	<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="ng-infinite-scroll/ng-infinite-scroll.js"></script>
+	<script src="scripts/data.js"></script>
+	<script src="scripts/main.js"></script>
+</head>
+
+<body ng-controller="YAppCtrl" infinite-scroll="getNewItems()" infinite-scroll-distance="3">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Panel heading without title
+			</div>
+			<div class="panel-body">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Company</th>
+							<th>Guid</th>
+							<th>About</th>
+							<th>Balance</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in displayData">
+							<td>{{item.name}}</td>
+							<td>{{item.company}}</td>
+							<td>{{item.guid}}</td>
+							<td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{item.about}}</td>
+							<td>{{item.balance | currency : $}}</td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+</html>
